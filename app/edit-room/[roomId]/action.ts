@@ -2,12 +2,12 @@
 
 import { editRoom, getRoom } from "@/data-access/rooms";
 import { Room } from "@/db/schema";
-import { getSession } from "@/lib/auth";
+import { getServerSideSession } from "@/lib/auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export async function editRoomAction(roomData: Omit<Room, "userId">) {
-  const session = await getSession();
+  const session = await getServerSideSession();
 
   if (!session) {
     throw new Error("you must be logged in to create this room");

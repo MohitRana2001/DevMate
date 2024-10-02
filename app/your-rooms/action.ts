@@ -1,11 +1,12 @@
 "use server";
 
 import { deleteRoom, getRoom } from "@/data-access/rooms";
-import { getSession } from "@/lib/auth";
+import { getServerSideSession } from "@/lib/auth";
 import { revalidatePath } from "next/cache";
 
 export async function deleteRoomAction(roomId: string) {
-  const session = await getSession();
+  const session = await getServerSideSession();
+  console.log("session: ", session);
   if (!session) {
     throw new Error("User not authenticated");
   }

@@ -30,11 +30,12 @@ export function DevFinderVideo({ room }: { room: Room }) {
     if (!session.data) {
       return;
     }
-    const userId = session.data.user.id as string;
+    const userId = session.data.user.id;
+    console.log("userId", userId);
     const client = new StreamVideoClient({
       apiKey,
       user: {
-        id: userId,
+        id: userId || "",
         name: session.data.user.name ?? undefined,
         image: session.data.user.image ?? undefined,
       },
@@ -44,6 +45,10 @@ export function DevFinderVideo({ room }: { room: Room }) {
     call.join({ create: true });
     setClient(client);
     setCall(call);
+
+    console.log("client", client);
+    console.log("call", call);
+    console.log("session", session);
 
     return () => {
       call

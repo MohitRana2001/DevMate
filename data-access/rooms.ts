@@ -2,7 +2,7 @@ import { db } from "@/db";
 import { Room, room } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { like } from "drizzle-orm";
-import { getSession } from "@/lib/auth";
+import { getServerSideSession } from "@/lib/auth";
 
 export async function getRooms(search: string | undefined) {
   const where = search ? like(room.tags, `%${search}%`) : undefined;
@@ -13,7 +13,7 @@ export async function getRooms(search: string | undefined) {
 }
 
 export async function getUserRooms() {
-  const session = await getSession();
+  const session = await getServerSideSession();
   if (!session) {
     throw new Error("User not authenticated");
   }

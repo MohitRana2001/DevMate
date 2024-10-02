@@ -1,10 +1,10 @@
 "use server";
 
 import { deleteUser } from "@/data-access/users";
-import { getSession } from "@/lib/auth";
+import { getServerSideSession } from "@/lib/auth";
 
 export async function deleteAccountAction() {
-  const session = await getSession();
+  const session = await getServerSideSession();
 
   if (!session) {
     throw new Error("you must be logged in to delete your account");
