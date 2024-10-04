@@ -107,6 +107,7 @@ export function Header() {
             width="60"
             height="60"
             alt="the application icon of a magnifying glass"
+            className="rounded-lg"
           />
           DevFinder
         </Link>

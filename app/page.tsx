@@ -3,6 +3,7 @@ import Link from "next/link";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 import { FlipWords } from "@/components/ui/flip-words";
+import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 
 export default function LandingPage() {
   const words = [
@@ -25,6 +26,7 @@ export default function LandingPage() {
   ];
 
   return (
+    <BackgroundBeamsWithCollision>
     <div className="">
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
@@ -41,13 +43,13 @@ export default function LandingPage() {
         </div>
         <div className="mx-auto max-w-2xl py-12">
           <div className="text-center">
-            <Image
-              className="inline-block"
+            {/* <Image
+              className="inline-block rounded-lg py-4"
               src="/icon.png"
               width="200"
               height="200"
               alt="dev finder logo"
-            />
+            /> */}
 
             <div className="text-center">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
@@ -96,5 +98,6 @@ export default function LandingPage() {
         </div>
       </div>
     </div>
+    </BackgroundBeamsWithCollision>
   );
 }
