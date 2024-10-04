@@ -96,7 +96,7 @@ export function CreateRoomForm() {
               <FormControl>
                 <Input
                   {...field}
-                  placeholder="https://github.com/webdevcody/dev-finder"
+                  placeholder="https://github.com/MohitRana2001/dev-mate"
                 />
               </FormControl>
               <FormDescription>

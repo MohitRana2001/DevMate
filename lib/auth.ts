@@ -1,4 +1,3 @@
-console.log("Auth config file loaded");
 import { db } from "@/db";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import { AuthOptions, DefaultSession, getServerSession } from "next-auth";
@@ -12,7 +11,6 @@ declare module "next-auth" {
     } & DefaultSession["user"];
   }
 }
-console.log("Auth configuration loading...");
 export const authConfig: AuthOptions = {
   adapter: DrizzleAdapter(db) as Adapter,
   session: {
@@ -26,18 +24,14 @@ export const authConfig: AuthOptions = {
   ],
   callbacks: {
     async jwt({user, account, token }) {
-        console.log("JWT Callback - Account ID:", account?.userId); // Debugging line
         if (account && user) {
           token.uid = user.id;
-          console.log("JWT Callback - User ID:", user.id); // Debugging line
         }
         return token;
       },
       async session({ session, token }) {
-        console.log("Session Callback - Token ID:", token.id); // Debugging line
         if (session.user && token.uid) {
           session.user.id = token.uid as string;
-          console.log("Session Callback - User ID:", token.id); // Debugging line
         }
         return session;
       },
@@ -47,6 +41,5 @@ export const authConfig: AuthOptions = {
 
 export async function getServerSideSession() {
   const session = await getServerSession(authConfig);
-  console.log("Server-side session:", session);
   return session;
 }
