@@ -17,8 +17,6 @@ import { Input } from "@/components/ui/input";
 import { createRoomAction } from "./actions";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
-// import { Link } from "lucide-react";
-import Link from "next/link";
 
 const formSchema = z.object({
   name: z.string().min(1).max(50),
@@ -98,7 +96,7 @@ export function CreateRoomForm() {
               <FormControl>
                 <Input
                   {...field}
-                  placeholder="https://github.com/MohitRana2001/dev-mate"
+                  placeholder="https://github.com/webdevcody/dev-finder"
                 />
               </FormControl>
               <FormDescription>
@@ -127,11 +125,7 @@ export function CreateRoomForm() {
           )}
         />
 
-        <Button type="submit">
-          {/* <Link href="/browse"> */}
-            Submit
-          {/* </Link> */}
-          </Button>
+        <Button type="submit">Submit</Button>
       </form>
     </Form>
   );
