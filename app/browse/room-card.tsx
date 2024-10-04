@@ -17,7 +17,7 @@ import { splitTags } from "@/lib/utils";
 
 export function RoomCard({ room }: { room: Room }) {
   return (
-    <Card>
+    <Card className="transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
       <CardHeader>
         <CardTitle>{room.name}</CardTitle>
         <CardDescription>{room.description}</CardDescription>
