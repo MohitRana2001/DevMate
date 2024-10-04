@@ -109,7 +109,7 @@ export function Header() {
             alt="the application icon of a magnifying glass"
             className="rounded-lg"
           />
-          DevFinder
+          DevMate
         </Link>
 
         <nav className="flex gap-8">

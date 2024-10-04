@@ -44,7 +44,6 @@ export const authConfig: AuthOptions = {
         return session;
       },
   },
-  debug: process.env.NODE_ENV === "development",
 };
 
 export async function getServerSideSession() {
