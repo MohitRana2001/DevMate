@@ -28,22 +28,24 @@ import { deleteRoomAction } from "./action";
 
 export function UserRoomCard({ room }: { room: Room }) {
   return (
-    <Card>
+    <Card className="p-4 md:p-6">
       <CardHeader className="relative">
         <Button className="absolute top-2 right-2" size="icon">
           <Link href={`/edit-room/${room.id}`}>
             <PencilIcon />
           </Link>
         </Button>
-        <CardTitle>{room.name}</CardTitle>
-        <CardDescription>{room.description}</CardDescription>
+        <CardTitle className="text-lg md:text-xl">{room.name}</CardTitle>
+        <CardDescription className="text-sm md:text-base">
+          {room.description}
+        </CardDescription>
       </CardHeader>
-      <CardContent className="flex flex-col gap-4">
+      <CardContent className="flex flex-col gap-2 md:gap-4">
         <TagsList tags={splitTags(room.tags)} />
         {room.githubRepo && (
           <Link
             href={room.githubRepo}
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 text-sm md:text-base"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -53,13 +55,13 @@ export function UserRoomCard({ room }: { room: Room }) {
         )}
       </CardContent>
       <CardFooter className="flex gap-2">
-        <Button asChild>
+        <Button size="sm" asChild>
           <Link href={`/rooms/${room.id}`}>Join Room</Link>
         </Button>
 
         <AlertDialog>
           <AlertDialogTrigger asChild>
-            <Button variant={"destructive"}>
+            <Button size="sm" variant={"destructive"}>
               <TrashIcon className="w-4 h-4 mr-2" /> Delete Room
             </Button>
           </AlertDialogTrigger>

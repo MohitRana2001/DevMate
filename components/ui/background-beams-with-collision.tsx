@@ -66,11 +66,26 @@ export const BackgroundBeamsWithCollision = ({
     },
   ];
 
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     if (window.innerWidth < 768) {
+  //       parentRef.current?.classList.add("small-screen-adjustment");
+  //     } else {
+  //       parentRef.current?.classList.remove("small-screen-adjustment");
+  //     }
+  //   };
+    
+  //   window.addEventListener('resize', handleResize);
+  //   handleResize(); // Run on mount
+  
+  //   return () => window.removeEventListener('resize', handleResize);
+  // }, []);
+
   return (
     <div
       ref={parentRef}
       className={cn(
-        "h-96 md:h-[40rem] bg-gradient-to-b from-white to-neutral-100 dark:from-neutral-950 dark:to-neutral-800 relative flex items-center w-full justify-center overflow-hidden",
+        "h-screen bg-gradient-to-b from-white to-neutral-100 dark:from-neutral-950 dark:to-neutral-800 relative flex items-center w-full justify-center overflow-hidden",
         // h-screen if you want bigger
         className
       )}

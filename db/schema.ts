@@ -5,9 +5,12 @@ import {
     primaryKey,
     integer,
     uuid,
+    boolean,
   } from "drizzle-orm/pg-core";
   import type { AdapterAccount } from "@auth/core/adapters";
   import { sql } from "drizzle-orm";
+
+  
   
   export const users = pgTable("user", {
     id: text("id").notNull().primaryKey(),
@@ -15,6 +18,7 @@ import {
     email: text("email").notNull(),
     emailVerified: timestamp("emailVerified", { mode: "date" }),
     image: text("image"),
+    isGuest: boolean("isGuest").default(false),
   });
   
   export const accounts = pgTable(
