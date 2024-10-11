@@ -9,7 +9,7 @@ import { GuestLoginButton } from "@/components/guestloginbutton";
 import { getServerSideSession } from "@/lib/auth";
 
 
-export default function LandingPage() {
+export default async function LandingPage() {
   const session = await getServerSideSession();
   const words = [
     "awesome",
