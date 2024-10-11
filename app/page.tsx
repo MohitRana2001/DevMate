@@ -6,8 +6,11 @@ import { FlipWords } from "@/components/ui/flip-words";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import { signIn } from "next-auth/react";
 import { GuestLoginButton } from "@/components/guestloginbutton";
+import { getServerSideSession } from "@/lib/auth";
+
 
 export default function LandingPage() {
+  const session = await getServerSideSession();
   const words = [
     "awesome",
     "cool",
