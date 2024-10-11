@@ -54,7 +54,7 @@ export default function LandingPage() {
             <Link href="/browse">
               <HoverBorderGradient>Get started</HoverBorderGradient>
             </Link>
-            <GuestLoginButton />
+            {!session && <GuestLoginButton />}
           </div>
         </div>
         <BackgroundGradient bottom />
